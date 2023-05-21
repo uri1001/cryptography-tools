@@ -34,42 +34,42 @@ do
     case $opt in
         'Create Data Files')
             echo -e '\nCreate Data Files Selected\n'
-            /bin/bash ./scripts/prefixs_factory.sh $prefixs_dir
-            /bin/bash ./scripts/docs_factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Create
-            /bin/bash ./scripts/nodes_factory.sh $docs_dir $nodes_dir $prefixs_dir Create
+            /bin/bash ./scripts/factory/prefixs-factory.sh $prefixs_dir
+            /bin/bash ./scripts/factory/docs-factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Create
+            /bin/bash ./scripts/factory/nodes-factory.sh $docs_dir $nodes_dir $prefixs_dir Create
             echo
             exit 1
             ;;
         'Add Data File')
             echo -e '\nCreate Data Files Selected\n'
-            /bin/bash ./scripts/prefixs_factory.sh $prefixs_dir
-            /bin/bash ./scripts/docs_factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Add
+            /bin/bash ./scripts/factory/prefixs-factory.sh $prefixs_dir
+            /bin/bash ./scripts/factory/docs-factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Add
             read -p '- Enter Absolute Path of File to Add to Docs : ' path
             echo
             cp $path ./docs/
             echo -e 'File Copied to Docs Directory'
-            /bin/bash ./scripts/nodes_factory.sh $docs_dir $nodes_dir $prefixs_dir Add $path
+            /bin/bash ./scripts/factory/nodes-factory.sh $docs_dir $nodes_dir $prefixs_dir Add $path
             echo
             exit 1
             ;;
         'Delete Data Files')
             echo -e '\nDelete Data Files Selected\n'
-            /bin/bash ./scripts/prefixs_factory.sh $prefixs_dir
-            /bin/bash ./scripts/docs_factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Delete
-            /bin/bash ./scripts/nodes_factory.sh $docs_dir $nodes_dir $prefixs_dir Delete
+            /bin/bash ./scripts/factory/prefixs-factory.sh $prefixs_dir
+            /bin/bash ./scripts/factory/docs-factory.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir Delete
+            /bin/bash ./scripts/factory/nodes-factory.sh $docs_dir $nodes_dir $prefixs_dir Delete
             echo
             exit 1
             ;;
         'Generate Proof')
             echo -e '\nGenerate Proof from Selected Leaf'
             echo
-            /bin/bash ./scripts/proofs_factory.sh $docs_dir $nodes_dir $proofs_dir
+            /bin/bash ./scripts/factory/proofs-factory.sh $docs_dir $nodes_dir $proofs_dir
             exit 1
             ;;
         'Validate Proof')
             echo -e '\nValidate Proof from Selected Leaf'
             echo
-            /bin/bash ./scripts/proofs_validate.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir
+            /bin/bash ./scripts/proofs-validate.sh $docs_dir $nodes_dir $prefixs_dir $proofs_dir
             exit 1
             ;;
         'Quit')

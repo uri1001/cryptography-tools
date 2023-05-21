@@ -70,7 +70,7 @@ done
 /bin/bash ./scripts/setup.sh $mode
 
 if [ "$mode" -eq 1 ] || [ "$mode" -eq 3 ]; then
-  /bin/bash ./scripts/param_and_key_gen.sh $mode
+  /bin/bash ./scripts/param-and-key-gen.sh $mode
 
   while true; do
     read -p 'Continue with the encryption process? (y/n)' answer
@@ -88,7 +88,7 @@ if [ "$mode" -eq 1 ] || [ "$mode" -eq 3 ]; then
 
   sleep 1
 
-  /bin/bash ./scripts/pubkey_enc.sh
+  /bin/bash ./scripts/pubkey-enc.sh
 fi
 
 if [ "$mode" -eq 2 ] || [ "$mode" -eq 3 ]; then
@@ -108,7 +108,7 @@ if [ "$mode" -eq 2 ] || [ "$mode" -eq 3 ]; then
 
   sleep 1
 
-  /bin/bash ./scripts/pubkey_dec.sh
+  /bin/bash ./scripts/pubkey-dec.sh
 fi
 
 echo -e '\nOperator Terminated\n'

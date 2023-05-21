@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./scripts/log2.sh
+source ./scripts/utils/log2.sh
 
 docs_dir=$1
 nodes_dir=$2
@@ -31,11 +31,11 @@ then
     echo
     if [ $input == 'update' ]
     then
-        /bin/bash ./scripts/update_mtree.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha $file_path
-        /bin/bash ./scripts/docu_factory.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha
+        /bin/bash ./scripts/update-mtree.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha $file_path
+        /bin/bash ./scripts/factory/docu-factory.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha
         exit 1
     fi
 fi
 
-/bin/bash ./scripts/create_mtree.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha
-/bin/bash ./scripts/docu_factory.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha
+/bin/bash ./scripts/create-mtree.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha
+/bin/bash ./scripts/factory/docu-factory.sh $docs_dir $nodes_dir $prefixs_dir $nfiles $levels $sha

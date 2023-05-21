@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./scripts/log2.sh
+source ./scripts/utils/log2.sh
 
 docs_dir=$1
 nodes_dir=$2
